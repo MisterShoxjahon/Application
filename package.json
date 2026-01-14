@@ -11,6 +11,8 @@
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
+    "@inquirer/input": "^5.0.4",
+    "@inquirer/select": "^5.0.4",
     "inquirer": "^13.1.0",
     "ts-node": "^10.9.2"
   },

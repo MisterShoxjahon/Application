@@ -1,6 +1,6 @@
 export interface MemorizationProgress {
     surah: string
-    forAyah: string
-    toAyah: string
+    fromAyah: number
+    toAyah: number
     date: string
 }
