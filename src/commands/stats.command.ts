@@ -5,7 +5,7 @@ export class StatsEntryCommand implements Command {
   constructor(private context: Context) {}
 
   async execute(): Promise<void> {
-    const data = this.context.storage.load();
+    const data = this.context.storage.load() ?? [];
 
     if (data.length === 0) {
       console.log("No entries found");
@@ -24,7 +24,7 @@ export class StatsEntryCommand implements Command {
       }
     }
 
-    console.log("Summary of memoriztion progress");
+    console.log("Summary of memorization progress");
     for (const [surah, count] of summary.entries()) {
       console.log(`${surah}: ${count} ayahs`);
     }

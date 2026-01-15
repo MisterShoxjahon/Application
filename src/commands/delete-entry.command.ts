@@ -6,7 +6,7 @@ export class DeleteEntryCommand implements Command {
   constructor(private context: Context) {}
 
   async execute(): Promise<void> {
-    const data = this.context.storage.load();
+    const data = this.context.storage.load() ?? [];
 
     if (data.length === 0) {
       console.log("No entries found");
@@ -15,13 +15,13 @@ export class DeleteEntryCommand implements Command {
 
     const { index } = await inquirer.prompt([
       {
-        type: "list",   
+        type: "list",
         name: "index",
         message: "Select an entry to delete",
-        choices: data.map((entry, index) => {
-          name: `${entry.surah} (${entry.fromAyah} - ${entry.toAyah}) - ${entry.date}`;
-          value: index;
-        }),
+        choices: data.map((entry, index) => ({
+          name: `${entry.surah} (${entry.fromAyah} - ${entry.toAyah}) - ${entry.date}`,
+          value: index,
+        })),
       },
     ]);
 
