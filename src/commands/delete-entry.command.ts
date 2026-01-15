@@ -6,7 +6,7 @@ export class DeleteEntryCommand implements Command {
   constructor(private context: Context) {}
 
   async execute(): Promise<void> {
-    const data = await this.context.storage.load();
+    const data = this.context.storage.load();
 
     if (data.length === 0) {
       console.log("No entries found");

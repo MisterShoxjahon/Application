@@ -27,6 +27,5 @@ export class AddEntryCommand implements Command {
     data.push(newEntry)
     this.context.storage.save(data)
     console.log('Date saved successfully!');
-
   }
 }
