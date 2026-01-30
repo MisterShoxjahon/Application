@@ -57,7 +57,5 @@ export class EditEntryCommand implements Command {
 
     this.context.storage.save(data);
     console.log("Entry updated successfully");
-
-    await input({ message: "Press Enter to return to menu..." });
   }
 } 
